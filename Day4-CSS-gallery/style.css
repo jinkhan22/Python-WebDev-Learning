@@ -1,0 +1,28 @@
+/*Day 4 Css*/
+
+body{
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    margin: 20px;
+}
+
+h1{
+    color: darkblue;
+    text-align: center;
+}
+
+nav a{
+    margin: 0 10px;
+    text-decoration: none;
+    color: darkgreen;
+}
+
+nav a:hover{
+    color: red;
+}
+
+img{
+    margin: 10px;
+    border: 2px solir #ddd;
+    border-radius: 8px;
+}
