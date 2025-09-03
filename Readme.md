@@ -12,7 +12,10 @@ Each day, I create a new folder with an HTML/CSS (and later Flask/Django) projec
 - [x] Day 3: [Links & Gallery](day3-gallery/index.html)
 - [x] Day 4: [CSS Basics] (day4-css-gallery/index.html)
 - [x] Day 5: [Portfolio Grid with Flexbox](day5-portfolio-grid/index.html)
-- [x] Day 6: [Advanced CSS Styling](day6-advance-css/index.html)
+- [x] Day 6: [Advanced CSS Styling](day6-advance-css/index.html)  
+- [x] Day 7: [Responsive Design + Dark/Light Mode](Day7-mobileresponsive/index.html)  
+- [x] Day 8: [Hero Section + Call-to-Action](index.html)  
+
 
 
 
