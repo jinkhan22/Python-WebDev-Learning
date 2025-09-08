@@ -23,33 +23,62 @@ header h1 {
   font-size: 2rem;
 }
 
+/* Navigation */
 nav {
   display: flex;
-  justify-content: center;  /* keeps links centered */
+  justify-content: center;
   align-items: center;
   gap: 15px;
   padding: 10px 20px;
   background: #34495e;
-  position: relative; /* needed for positioning button */
+  position: relative;
 }
 
 nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  position: relative; /* needed for underline */
 }
 
 nav a:hover {
   color: #1abc9c;
 }
 
-.hero{
+/* 🔥 Animated underline for nav links */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms cubic-bezier(.2,.8,.2,1);
+}
+nav a:hover::after,
+nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Dark Mode Button inside nav */
+#toggle-theme {
+  position: absolute;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Hero Section with animated gradient */
+.hero {
   display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
   height: 90vh;
-  /* Animated gradient background */
   background: linear-gradient(270deg, #3498db, #9b59b6, #2c3e50, #1abc9c);
   background-size: 800% 800%;
   animation: gradientBG 15s ease infinite;
@@ -57,23 +86,26 @@ nav a:hover {
   padding: 20px;
 }
 
-/* Keyframes for gradient animation */
-@keyframes gradientBG{
-  0% { background-position: 0% 50%;}
-  50% { background-position: 100% 50%;}
-  100% { background-position: 0% 50%;}
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 15px;
 }
-
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 25px;
 }
 
-.cta-ctn {
+/* CTA Button */
+.cta-btn {
   display: inline-block;
   padding: 12px 25px;
   background: #1abc9c;
@@ -83,48 +115,17 @@ nav a:hover {
   border-radius: 30px;
   transition: 0.3s ease;
 }
-
-.cta-ctn:hover{
+.cta-btn:hover {
   background: #16a085;
-  transition: scale(1.05);
+  transform: translateY(-2px) scale(1.02);
 }
-
-/* Dark Mode Button inside nav */
-#toggle-theme {
-  position: absolute;
-  right: 20px;    /* sticks button to far right */
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: white;   /* default light mode color */
-}
-
-/* Light Mode button (default) */
-#toggle-theme {
-  color: white; /* shows correctly on dark nav */
-}
-
-
-nav a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a:hover {
-  color: #1abc9c;
+.cta-btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 /* Main content */
-main {
-  padding: 20px;
-}
-
-h2 {
-  color: #2c3e50;
-}
+main { padding: 20px; }
+h2 { color: #2c3e50; }
 
 /* Sections */
 section {
@@ -134,6 +135,11 @@ section {
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   max-width: 800px;
+  will-change: transform; /* 🔥 performance for hover lift */
+}
+section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
 }
 
 /* Footer */
@@ -145,91 +151,88 @@ footer {
   margin-top: 20px;
 }
 
-
-/* 🌙 DARK MODE OVERRIDES — put these LAST so they win */
-
-/* Base */
+/* 🌙 DARK MODE OVERRIDES */
 body.dark {
   background: #1e1e1e;
   color: #eee;
 }
-
-/* Text */
-body.dark h1,
-body.dark h2,
-body.dark h3,
-body.dark h4,
-body.dark h5,
-body.dark h6,
-body.dark p,
-body.dark li {
+body.dark h1, body.dark h2, body.dark h3, body.dark h4,
+body.dark h5, body.dark h6, body.dark p, body.dark li {
   color: #eee;
 }
-
-/* Links */
-body.dark a {
-  color: #1abc9c;
-}
-
-body.dark a:hover {
-  color: #16f0c9;
-}
-
-/* Header */
 body.dark header {
   background: linear-gradient(135deg, #111, #333);
   color: #eee;
 }
-
-/* Nav */
 body.dark nav {
   background: #111;
   box-shadow: 0 2px 6px rgba(255,255,255,0.1);
 }
-
-body.dark nav a {
-  color: #eee;
-}
-
-body.dark nav a:hover {
-  color: #1abc9c;
-}
-
-/* Dark Mode button */
-body.dark #toggle-theme {
-  color: #eee;
-}
-
-
-/* Sections */
+body.dark nav a { color: #eee; }
+body.dark nav a:hover { color: #1abc9c; }
+body.dark #toggle-theme { color: #eee; }
 body.dark section {
   background: #2c2c2c;
   color: #eee;
 }
-
-/* Footer */
+body.dark section:hover {
+  box-shadow: 0 10px 24px rgba(255,255,255,.08);
+}
+body.dark .hero {
+  background: linear-gradient(270deg, #1f2937, #0f172a, #334155, #0b3954);
+  background-size: 800% 800%;
+  animation: gradientBG 10s ease infinite;
+}
 body.dark footer {
   background: #111;
   color: #aaa;
 }
-
-/* Buttons */
-body.dark .gradient-btn {
-  background: linear-gradient(90deg, #9b59b6, #3498db);
+/* Dark Mode CTA button override */
+body.dark .cta-btn {
+  background: #9b59b6;
+  color: #fff;
+}
+body.dark .cta-btn:hover {
+  background: #8e44ad;
 }
 
-/* Shadow box */
-body.dark .shadow-box {
-  background: #444;
-  color: #eee;
-  box-shadow: 0 6px 15px rgba(255,255,255,0.1);
+/* Smooth transition for theme toggling */
+body, header, nav, section, footer {
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-@media (max-width: 768px){
-  .hero h1{
-    font-size: 1.8rem;
-  }
-  .hero p{
-    font-size: 1rem;
-  }
+/* 🔥 Fade-up reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp .6s cubic-bezier(.2,.8,.2,1) forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { animation: none; opacity: 1; transform: none; }
+}
+
+/* Accessibility focus */
+:focus-visible {
+  outline: 3px solid #1abc9c;
+  outline-offset: 3px;
+}
+body.dark :focus-visible { outline-color: #9b59b6; }
+
+/* Responsive Design */
+/* Tablet */
+@media (max-width: 768px) {
+  nav { flex-direction: column; gap: 10px; }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+}
+/* Mobile */
+@media (max-width: 480px) {
+  header, nav, section, footer { padding: 15px; }
+  .hero { height: auto; padding: 40px 20px; }
+  .hero h1 { font-size: 1.6rem; }
+  .cta-btn { padding: 10px 18px; font-size: 0.9rem; }
+  section ul { padding-left: 20px; }
 }
