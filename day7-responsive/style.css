@@ -1,0 +1,227 @@
+/* 🌞 LIGHT MODE (Default) */
+
+/* General reset */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: #f4f4f9;
+  color: #333;
+}
+
+/* 📱 Responsive design */
+
+/* For tablets and smaller (max width 768px) */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  nav a {
+    display: block;
+    margin: 5px 0;
+  }
+
+  section {
+    margin: 15px;
+    padding: 10px;
+  }
+}
+
+/* For phones (max width 480px) */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  #toggle-theme {
+    position: static; /* moves button below nav links */
+    margin-top: 10px;
+  }
+
+  section {
+    padding: 8px;
+  }
+}
+
+
+/* Header */
+header {
+  background: #2c3e50;
+  color: white;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;  /* keeps links centered */
+  align-items: center;
+  gap: 15px;
+  padding: 10px 20px;
+  background: #34495e;
+  position: relative; /* needed for positioning button */
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #1abc9c;
+}
+
+/* Dark Mode Button inside nav */
+#toggle-theme {
+  position: absolute;
+  right: 20px;    /* sticks button to far right */
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: white;   /* default light mode color */
+}
+
+/* Light Mode button (default) */
+#toggle-theme {
+  color: white; /* shows correctly on dark nav */
+}
+
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #1abc9c;
+}
+
+/* Main content */
+main {
+  padding: 20px;
+}
+
+h2 {
+  color: #2c3e50;
+}
+
+/* Sections */
+section {
+  background: white;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  max-width: 800px;
+}
+
+/* Footer */
+footer {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+
+/* 🌙 DARK MODE OVERRIDES — put these LAST so they win */
+
+/* Base */
+body.dark {
+  background: #1e1e1e;
+  color: #eee;
+}
+
+/* Text */
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark p,
+body.dark li {
+  color: #eee;
+}
+
+/* Links */
+body.dark a {
+  color: #1abc9c;
+}
+
+body.dark a:hover {
+  color: #16f0c9;
+}
+
+/* Header */
+body.dark header {
+  background: linear-gradient(135deg, #111, #333);
+  color: #eee;
+}
+
+/* Nav */
+body.dark nav {
+  background: #111;
+  box-shadow: 0 2px 6px rgba(255,255,255,0.1);
+}
+
+body.dark nav a {
+  color: #eee;
+}
+
+body.dark nav a:hover {
+  color: #1abc9c;
+}
+
+/* Dark Mode button */
+body.dark #toggle-theme {
+  color: #eee;
+}
+
+
+/* Sections */
+body.dark section {
+  background: #2c2c2c;
+  color: #eee;
+}
+
+/* Footer */
+body.dark footer {
+  background: #111;
+  color: #aaa;
+}
+
+/* Buttons */
+body.dark .gradient-btn {
+  background: linear-gradient(90deg, #9b59b6, #3498db);
+}
+
+/* Shadow box */
+body.dark .shadow-box {
+  background: #444;
+  color: #eee;
+  box-shadow: 0 6px 15px rgba(255,255,255,0.1);
+}
