@@ -30,3 +30,7 @@ let a = 5;
 let b = 9;
 console.log("is a < b? ", a < b);
 console.log("is a ==b?", a == b);
+
+//types
+
+console.log(typeof "hello");
