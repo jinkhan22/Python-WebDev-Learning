@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taxi Fare Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>🚖 Taxi Fare Calculator</h1>
+
+    <label for="distance">Enter distance (km):</label>
+    <label>
+    <input type="checkbox" id="surge"> Apply Surge Pricing (Night/Busy Hours)
+    </label>
+        <br>
+    <label for="discount">Discount Code:</label>
+    <input type="text" id="discount" placeholder="e.g. SAVE10">
+    <input type="number" id="distance" placeholder="e.g. 10">
+    <button id="calcBtn">Calculate Fare</button>
+
+    <p id="result">💡 Enter distance and click Calculate.</p>
+    <button id="chartBtn">Show Fare Chart (1–20 km)</button>
+    <ul id="fareChart"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
