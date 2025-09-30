@@ -20,7 +20,6 @@ addBtn.addEventListener("click", () => {
     alert("❌ Please enter valid expense and amount.");
   }
 });
-
 function renderExpenses() {
   expenseList.innerHTML = "";
   let total = 0;
@@ -28,14 +27,25 @@ function renderExpenses() {
   expenses.forEach((exp, i) => {
     let li = document.createElement("li");
     li.textContent = `${exp.title}: $${exp.amount}`;
+
+    // 🔹 Create Delete Button
+    let delBtn = document.createElement("button");
+    delBtn.textContent = "Delete";
+    delBtn.classList.add("delete-btn");
+
+    // 🔹 Confirm before deleting
+    delBtn.addEventListener("click", () => {
+      if (confirm(`Delete "${exp.title}"?`)) {
+        expenses.splice(i, 1); // remove at index
+        renderExpenses();      // refresh list
+      }
+    });
+
+    li.appendChild(delBtn);
     expenseList.appendChild(li);
+
     total += exp.amount;
   });
 
   totalDisplay.textContent = `Total: $${total}`;
-}
-
-function clearForm() {
-  titleInput.value = "";
-  amountInput.value = "";
 }
