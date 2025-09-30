@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taxi Booking Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🚖 Taxi Booking Manager</h1>
+  </header>
+
+  <main>
+    <!-- Booking Form -->
+    <section>
+      <h2>New Booking</h2>
+      <input type="text" id="pickup" placeholder="Pickup Location">
+      <input type="text" id="drop" placeholder="Drop Location">
+      <input type="number" id="distance" placeholder="Distance (km)">
+      <button id="addBooking">Add Booking</button>
+    </section>
+
+    <!-- Booking List -->
+    <section>
+      <h2>All Bookings</h2>
+      <ul id="bookingList"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with ❤️ on Day 19</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
